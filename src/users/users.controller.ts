@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -19,6 +19,17 @@ export class UsersController {
   @Get()
   getAll() {
     return this.todosService.getAll();
+  }
+
+  @Get(':id')
+  getUserById(@Param('id') id: string) {
+    return this.todosService.getUserById(id);
+  }
+
+  @Get('/searchbymail/:email')
+  getUserbyemail(@Param('email') email: string) {
+    const userpass = this.todosService.findbyemail(email);
+    return userpass;
   }
 
   @Patch()
