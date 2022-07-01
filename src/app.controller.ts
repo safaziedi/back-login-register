@@ -1,9 +1,11 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 import { AppService } from './app.service';
 import { GetCurretUserById } from './users/get-user-by-id.decorator';
 import { JwtAuthGuard } from './users/guards/jwt-guard.guard';
 
+@ApiTags('protected part')
 @Controller('/protected')
 export class AppController {
   constructor(private readonly appService: AppService) {}

@@ -4,6 +4,7 @@ import { UsersController } from './users.controller';
 import { UserSchema } from './user.model';
 
 import { MongooseModule } from '@nestjs/mongoose';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports :[
@@ -12,7 +13,8 @@ import { MongooseModule } from '@nestjs/mongoose';
         name :'User' ,
         schema : UserSchema ,
       }]
-    )
+    ),
+    HttpModule
   ],
   providers: [UsersService],
   controllers: [UsersController],

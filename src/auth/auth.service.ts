@@ -38,5 +38,9 @@ export class AuthService {
 
     signupLocal(dto: authDto){
         //create new user with dto
+        return this.usersService.create(dto)
     }
+
+
+    
 }

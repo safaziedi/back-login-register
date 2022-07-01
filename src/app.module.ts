@@ -9,8 +9,6 @@ import { UsersModule } from './users/users.module';
   imports: [AuthModule, 
             UsersModule ,
             MongooseModule.forRoot('mongodb+srv://dbUser:safaziadi07012001@cluster0.thbgv.mongodb.net/jwt?retryWrites=true&w=majority'),
-
-  
   ],
   controllers: [AppController],
   providers: [AppService],
