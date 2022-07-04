@@ -3771,10 +3771,10 @@
   optionalDependencies:
     "saslprep" "^1.0.3"
 
-"mongoose@^6.0.2", "mongoose@^6.4.1":
-  "integrity" "sha512-6a3UmHaC2BYdxZT7qqwORqbxDfAa5HaRMidkA8Ll4Rupnl6R8vRu5Av13jx4DaxgJBpPDo4/K9AXxb+OGSD+5w=="
-  "resolved" "https://registry.npmjs.org/mongoose/-/mongoose-6.4.1.tgz"
-  "version" "6.4.1"
+"mongoose@^6.0.2", "mongoose@^6.4.2":
+  "integrity" "sha512-VRotms+XC42vPlS3Tr2GTg0qkppHzWob62sUjdC22ir8aqWVrbCsHjEuMsL6zZlKSIj8zNBODm9hRV+RHRiLRQ=="
+  "resolved" "https://registry.npmjs.org/mongoose/-/mongoose-6.4.2.tgz"
+  "version" "6.4.2"
   dependencies:
     "bson" "^4.6.2"
     "kareem" "2.4.1"

@@ -2,6 +2,7 @@ import { Injectable ,NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { UserDecorator } from 'src/users/user.decorator';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { Todo } from './todo.model';
@@ -18,9 +19,11 @@ export class TodosService {
         return createdTodo.save();
       }
 
-    async getAll(): Promise<Todo[]> {
-        return this.TodoModel.find().exec();
+
+    async getAll(@UserDecorator() user): Promise<Todo[]> {
+        return this.TodoModel.find({user}).exec();
       }
+
 
       async update(todo: UpdateTodoDto) {
         const updateTodo = new this.TodoModel(todo);

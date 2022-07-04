@@ -8,9 +8,11 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
+import { UserDecorator } from 'src/users/user.decorator';
+import { User } from 'src/users/user.model';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { TodosService } from './todos.service';
@@ -29,8 +31,11 @@ export class TodosController {
 
   
   @Get()
-  getAll() {
-    return this.todosService.getAll();
+  @UseGuards(JwtAuthGuard)
+  getAll(
+    @UserDecorator() user: User
+  ) {
+    return this.todosService.getAll(user);
   }
 
   @Patch()
@@ -40,8 +45,6 @@ export class TodosController {
 
   @Delete(':id')
   delete(@Param('id') id: string) {
-    console.log('iciii');
-
     return this.todosService.delete(id);
   }
 }
