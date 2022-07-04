@@ -14,7 +14,7 @@ export class TodosService {
   ) {}
 
     async create(createTodoDto: CreateTodoDto , user : CreateUserDto): Promise<Todo> {
-        const createdTodo = new this.TodoModel(createTodoDto ,user);
+        const createdTodo = new this.TodoModel({ ...createTodoDto ,user});
         return createdTodo.save();
       }
 

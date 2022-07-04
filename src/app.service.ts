@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { User } from './users/user.model';
 
 @Injectable()
 export class AppService {
   getHello(
-    userId : string
-    ): string {
+    user : User
+    ){
     
-    return 'Hello World!';
+    return user
   }
 }
